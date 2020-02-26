@@ -1,7 +1,4 @@
 .vs/**/*
-WindowsNetworking.Framework4/bin/**/*
-WindowsNetworking.Framework4/obj/**/*
-WindowsNetworking.Framework4/WindowsNetworking.csproj.user
 WindowsNetworking.Standard/bin/**/*
 WindowsNetworking.Standard/obj/**/*
 WindowsNetworking.Standard/WindowsNetworking.csproj.user
