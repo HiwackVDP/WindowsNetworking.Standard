@@ -7,6 +7,14 @@ namespace WindowsNetworking
 {
 	public static class PinvokeWindowsNetworking
 	{
+		/// <summary>
+		/// Creates a connection to the targeted remote computer using <a href="https://docs.microsoft.com/en-us/windows/win32/api/winnetwk/nf-winnetwk-wnetuseconnectiona">WNetUseConnection</a>
+		/// </summary>
+		/// <param name="remoteUNC">UNC of the target</param>
+		/// <param name="username">User of the identity used for the connection</param>
+		/// <param name="password">Password of the user</param>
+		/// <param name="promptUser">Do we need to prompt for authentication or not ? If true, will ignore the username and password.</param>
+		/// <returns>An error message if something goes wrong</returns>
 		public static string ConnectToRemote(string remoteUNC, string username, string password, bool promptUser)
 		{
 			var nr = new NetResource
@@ -29,6 +37,11 @@ namespace WindowsNetworking
 			return Errors.GetErrorForNumber(ret);
 		}
 
+		/// <summary>
+		/// Closes a connection to the targeted remote computer using <a href="https://docs.microsoft.com/en-us/windows/win32/api/winnetwk/nf-winnetwk-wnetcancelconnection2a">WNetCancelConnection2</a>
+		/// </summary>
+		/// <param name="remoteUNC">UNC of the target</param>
+		/// <returns>An error message if something goes wrong</returns>
 		public static string DisconnectRemote(string remoteUNC)
 		{
 			int ret = WNetCancelConnection2(remoteUNC, 0, false);
